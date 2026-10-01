@@ -12,219 +12,71 @@ body {
 
 body {
     min-height: 100vh;
-
     overflow: hidden;
 
     background:
         radial-gradient(
             circle at center,
-            #392216 0%,
-            #17100d 45%,
-            #050505 100%
+            #44291c 0%,
+            #1c110d 45%,
+            #070504 100%
         );
+
+    color: white;
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
-
-    color: white;
 }
 
-
-/* =====================================
-   PANTALLA DE INICIO
-===================================== */
-
-.inicio {
-    position: fixed;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #4c2c1a,
-            #17100d 55%,
-            #050505
-        );
-
-    z-index: 5000;
-
-    transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
-}
-
-.inicio.ocultar {
-    opacity: 0;
-    visibility: hidden;
-
-    pointer-events: none;
-}
-
-.inicio-contenido {
-    width: 90%;
-
-    text-align: center;
-
-    animation:
-        aparecerInicio 2s ease;
-}
-
-.fecha-inicio {
-    margin-bottom: 15px;
-
-    color: #d7a369;
-
-    font-size: 14px;
-
-    letter-spacing: 7px;
-}
-
-.inicio h1 {
-    color: #fff;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(35px, 7vw, 65px);
-
-    font-weight: normal;
-
-    text-shadow:
-        0 0 20px
-        rgba(255, 255, 255, 0.25);
-}
-
-
-/* BOTÓN DE INICIO */
-
-#botonComenzar {
-    margin-top: 35px;
-
-    padding:
-        14px 32px;
-
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.6);
-
-    border-radius: 40px;
-
-    color: white;
-
-    background:
-        rgba(255, 255, 255, 0.08);
-
-    backdrop-filter:
-        blur(10px);
-
-    font-size: 16px;
-
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    transition: 0.4s;
-
-    box-shadow:
-        0 0 25px
-        rgba(215, 163, 105, 0.2);
-}
-
-#botonComenzar:hover {
-    color: #21140d;
-
-    background: #d7a369;
-
-    transform:
-        scale(1.07);
-
-    box-shadow:
-        0 0 35px
-        rgba(215, 163, 105, 0.5);
-}
-
-.instruccion {
-    margin-top: 20px;
-
-    color:
-        rgba(255, 255, 255, 0.45);
-
-    font-size: 12px;
-}
-
-
-/* =====================================
-   CONTENIDO PRINCIPAL
-===================================== */
+/* =========================
+   CONTENIDO
+========================= */
 
 .contenido {
     position: relative;
 
     width: 100%;
-    min-height: 100vh;
-
-    opacity: 0;
+    height: 100vh;
 
     overflow: hidden;
-
-    transition:
-        opacity 1.6s ease;
 }
 
-.contenido.mostrar {
-    opacity: 1;
-}
-
-
-/* =====================================
+/* =========================
    TÍTULO
-===================================== */
+========================= */
 
 .titulo {
     position: absolute;
 
-    top: 5%;
+    top: 4%;
     left: 50%;
 
-    width: 90%;
+    width: 95%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     text-align: center;
 
     z-index: 100;
-}
-
-.titulo p {
-    color: #d7a369;
-
-    font-size: 12px;
-
-    letter-spacing: 6px;
-
-    opacity: 0;
 
     animation:
-        mostrarTexto 1.5s 1.5s forwards;
+        aparecerArriba 1.5s ease;
+}
+
+.fecha {
+    color: #dca878;
+
+    font-size: 13px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 8px;
 }
 
 .titulo h1 {
-    margin-top: 10px;
-
-    color:
-        rgba(255,255,255,0.92);
+    color: #ffffff;
 
     font-family:
         Georgia,
@@ -232,111 +84,113 @@ body {
         serif;
 
     font-size:
-        clamp(24px, 4vw, 40px);
+        clamp(27px, 4vw, 45px);
 
     font-weight: normal;
 
-    opacity: 0;
-
-    animation:
-        mostrarTexto 1.5s 2s forwards;
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.2);
 }
 
-
-/* =====================================
+/* =========================
    FOTO
-===================================== */
+========================= */
 
-.foto-contenedor {
+.foto-seccion {
     position: absolute;
 
-    top: 50%;
+    top: 47%;
     left: 50%;
 
-    width:
-        min(72vw, 620px);
+    transform: translate(-50%, -50%);
 
-    aspect-ratio: 16 / 10;
-
-    transform:
-        translate(-50%, -50%)
-        scale(0.85);
-
-    border-radius: 22px;
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    box-shadow:
-        0 15px 60px
-        rgba(0,0,0,0.75);
-
-    animation:
-        mostrarFoto
-        2.5s
-        0.8s
-        forwards;
+    width: min(76vw, 680px);
 
     z-index: 10;
 }
 
-.foto {
-    width: 100%;
-    height: 100%;
+/* Resplandor detrás */
 
-    object-fit: cover;
-
-    display: block;
-
-    animation:
-        zoomFoto
-        12s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-
-/* SOMBRA CINEMÁTICA SOBRE FOTO */
-
-.overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.05),
-            rgba(0,0,0,0.08) 50%,
-            rgba(0,0,0,0.65)
-        );
-
-    pointer-events: none;
-}
-
-
-/* BRILLO DETRÁS DE FOTO */
-
-.brillo-foto {
+.resplandor {
     position: absolute;
 
     inset: -30px;
 
     background:
-        rgba(191, 120, 66, 0.25);
+        radial-gradient(
+            circle,
+            rgba(221, 154, 92, 0.35),
+            rgba(143, 76, 40, 0.12),
+            transparent 70%
+        );
 
-    filter:
-        blur(40px);
+    filter: blur(35px);
 
-    z-index: -1;
+    animation:
+        respirar 3s ease-in-out infinite alternate;
 }
 
+/* Marco */
 
-/* =====================================
-   FRASE
-===================================== */
+.foto-contenedor {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(222, 155, 94, 0.2);
+
+    animation:
+        aparecerFoto 2s ease forwards;
+}
+
+/* FOTO REAL */
+
+.foto {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    animation:
+        zoomSuave 10s ease-in-out infinite alternate;
+}
+
+/* Degradado sobre la parte inferior */
+
+.sombra-foto {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            rgba(0, 0, 0, 0.15) 65%,
+            rgba(0, 0, 0, 0.55) 100%
+        );
+}
+
+/* =========================
+   FRASE SOBRE LA FOTO
+========================= */
 
 .frase {
     position: absolute;
@@ -344,101 +198,81 @@ body {
     left: 50%;
     bottom: 16%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
-    width: 100%;
+    width: 90%;
 
     text-align: center;
 
     z-index: 100;
+
+    color: white;
+
+    text-shadow:
+        0 3px 15px rgba(0, 0, 0, 1);
 }
 
-.linea {
+.frase-pequena {
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    color: white;
-
-    text-shadow:
-        0 2px 15px
-        rgba(0,0,0,0.9);
+    font-size:
+        clamp(25px, 4vw, 42px);
 
     opacity: 0;
-}
-
-.linea-1 {
-    font-size:
-        clamp(28px, 5vw, 52px);
 
     animation:
-        aparecerFrase
-        1.5s
-        3.5s
-        forwards;
+        aparecerTexto 1.5s 1.5s forwards;
 }
 
-.linea-2 {
+.frase-grande {
     margin-top: 3px;
 
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:
-        clamp(34px, 6vw, 65px);
+        clamp(35px, 6vw, 65px);
 
     font-style: italic;
 
-    animation:
-        aparecerFrase
-        1.8s
-        4.7s
-        forwards;
-}
-
-.linea-3 {
-    margin-top: 7px;
-
-    font-size: 30px;
+    opacity: 0;
 
     animation:
-        aparecerFrase
-        2s
-        6s
-        forwards;
+        aparecerTexto 1.8s 2.5s forwards;
 }
 
-
-/* =====================================
+/* =========================
    MENSAJE FINAL
-===================================== */
+========================= */
 
 .mensaje-final {
     position: absolute;
 
-    bottom: 5%;
     left: 50%;
+    bottom: 6%;
 
     width: 90%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     text-align: center;
+
+    z-index: 100;
 
     opacity: 0;
 
     animation:
-        aparecerFrase
-        2s
-        7s
-        forwards;
-
-    z-index: 100;
+        aparecerTexto 2s 3.5s forwards;
 }
 
 .mensaje-final p {
     color:
-        rgba(255,255,255,0.75);
+        rgba(255, 255, 255, 0.85);
 
     font-family:
         Georgia,
@@ -452,104 +286,134 @@ body {
 .mensaje-final span {
     display: block;
 
-    margin-top: 7px;
+    margin-top: 6px;
 
-    font-size: 18px;
+    font-size: 20px;
 }
 
+/* =========================
+   INDICACIÓN
+========================= */
 
-/* =====================================
-   BOTÓN MÚSICA
-===================================== */
+.indicacion {
+    position: absolute;
 
-.boton-musica {
-    position: fixed;
+    bottom: 1%;
+    left: 50%;
 
-    top: 20px;
-    right: 20px;
+    transform: translateX(-50%);
 
-    width: 43px;
-    height: 43px;
+    color:
+        rgba(255, 255, 255, 0.4);
 
-    border:
-        1px solid
-        rgba(255,255,255,0.3);
+    font-size: 11px;
 
-    border-radius: 50%;
-
-    color: white;
-
-    background:
-        rgba(0,0,0,0.35);
-
-    backdrop-filter:
-        blur(8px);
-
-    font-size: 19px;
-
-    cursor: pointer;
-
-    z-index: 500;
+    z-index: 100;
 
     animation:
-        pulsoMusica
-        2s
-        infinite;
+        parpadeo 2s infinite;
 }
 
-
-/* =====================================
-   HOJAS DE OTOÑO
-===================================== */
+/* =========================
+   HOJAS
+========================= */
 
 .hoja {
     position: fixed;
 
     top: -50px;
 
-    z-index: 200;
-
     pointer-events: none;
 
-    opacity: 0.75;
+    z-index: 200;
 
     animation:
-        caerHoja
-        linear
-        forwards;
+        caerHoja linear forwards;
 }
 
-
-/* =====================================
+/* =========================
    CORAZONES
-===================================== */
+========================= */
 
 .corazon {
     position: fixed;
 
     pointer-events: none;
 
-    z-index: 1000;
+    z-index: 500;
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.8);
 
     animation:
-        subirCorazon
-        2.4s
-        ease-out
-        forwards;
+        subirCorazon 2.5s ease-out forwards;
 }
 
-
-/* =====================================
+/* =========================
    ANIMACIONES
-===================================== */
+========================= */
 
-@keyframes aparecerInicio {
+@keyframes aparecerArriba {
+
+    from {
+        opacity: 0;
+        transform:
+            translate(-50%, -25px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translate(-50%, 0);
+    }
+}
+
+@keyframes aparecerFoto {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.85);
+
+        filter:
+            blur(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+@keyframes zoomSuave {
+
+    from {
+        transform:
+            scale(1);
+    }
+
+    to {
+        transform:
+            scale(1.07);
+    }
+}
+
+@keyframes aparecerTexto {
 
     from {
         opacity: 0;
 
         transform:
             translateY(25px);
+
+        filter:
+            blur(4px);
     }
 
     to {
@@ -557,91 +421,28 @@ body {
 
         transform:
             translateY(0);
-    }
-}
-
-
-@keyframes mostrarFoto {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(-50%, -45%)
-            scale(0.7);
-
-        filter:
-            blur(10px);
-    }
-
-    100% {
-        opacity: 1;
-
-        transform:
-            translate(-50%, -50%)
-            scale(1);
 
         filter:
             blur(0);
     }
 }
 
-
-@keyframes zoomFoto {
+@keyframes respirar {
 
     from {
+        opacity: 0.45;
+
         transform:
-            scale(1);
+            scale(0.95);
     }
 
     to {
+        opacity: 0.9;
+
         transform:
             scale(1.08);
     }
 }
-
-
-@keyframes mostrarTexto {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-@keyframes aparecerFrase {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(20px);
-
-        filter:
-            blur(5px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-        filter:
-            blur(0);
-    }
-}
-
 
 @keyframes caerHoja {
 
@@ -668,7 +469,6 @@ body {
     }
 }
 
-
 @keyframes subirCorazon {
 
     0% {
@@ -676,7 +476,7 @@ body {
 
         transform:
             translate(-50%, -50%)
-            scale(0.6);
+            scale(0.5);
     }
 
     100% {
@@ -687,72 +487,63 @@ body {
                 calc(-50% + var(--movimiento)),
                 -220px
             )
-            scale(1.3);
+            scale(1.4);
     }
 }
 
-
-@keyframes pulsoMusica {
+@keyframes parpadeo {
 
     0%,
     100% {
-        box-shadow:
-            0 0 5px
-            rgba(255,255,255,0.15);
+        opacity: 0.25;
     }
 
     50% {
-        box-shadow:
-            0 0 20px
-            rgba(215,163,105,0.6);
+        opacity: 0.7;
     }
 }
 
-
-/* =====================================
+/* =========================
    CELULAR
-===================================== */
+========================= */
 
 @media (max-width: 600px) {
 
     .titulo {
-        top: 5%;
+        top: 3%;
     }
 
-    .titulo p {
+    .fecha {
         font-size: 10px;
 
-        letter-spacing: 4px;
+        letter-spacing: 5px;
     }
 
     .titulo h1 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
-
-    .foto-contenedor {
+    .foto-seccion {
         top: 46%;
 
-        width: 90vw;
-
-        aspect-ratio: 16 / 11;
-
-        border-radius: 16px;
+        width: 88vw;
     }
 
+    .foto-contenedor {
+        border-radius: 20px;
+    }
 
     .frase {
-        bottom: 18%;
+        bottom: 16%;
     }
 
-    .linea-1 {
-        font-size: 31px;
+    .frase-pequena {
+        font-size: 28px;
     }
 
-    .linea-2 {
-        font-size: 42px;
+    .frase-grande {
+        font-size: 40px;
     }
-
 
     .mensaje-final {
         bottom: 6%;
@@ -761,35 +552,25 @@ body {
     .mensaje-final p {
         font-size: 15px;
     }
-
-
-    .boton-musica {
-        width: 38px;
-        height: 38px;
-
-        top: 15px;
-        right: 15px;
-
-        font-size: 16px;
-    }
-
 }
 
+/* CELULARES BAJITOS */
 
-/* CELULARES PEQUEÑOS */
+@media (max-height: 700px) {
 
-@media (max-height: 650px) {
-
-    .foto-contenedor {
-        width: min(72vw, 500px);
+    .foto-seccion {
+        width: min(73vw, 500px);
     }
 
     .frase {
-        bottom: 13%;
+        bottom: 14%;
     }
 
     .mensaje-final {
-        bottom: 2%;
+        bottom: 4%;
     }
 
+    .indicacion {
+        display: none;
+    }
 }
