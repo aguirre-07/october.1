@@ -1,136 +1,32 @@
-// ==========================================
-// ELEMENTOS
-// ==========================================
+// =====================================
+// HOJAS DE OTOÑO
+// =====================================
 
-const inicio =
-    document.getElementById("inicio");
-
-const contenido =
-    document.getElementById("contenido");
-
-const botonComenzar =
-    document.getElementById("botonComenzar");
-
-const botonMusica =
-    document.getElementById("botonMusica");
-
-const musica =
-    document.getElementById("musica");
-
-const hojas =
-    document.getElementById("hojas");
-
-
-// ==========================================
-// COMENZAR EXPERIENCIA
-// ==========================================
-
-botonComenzar.addEventListener("click", () => {
-
-    inicio.classList.add("ocultar");
-
-    contenido.classList.add("mostrar");
-
-
-    // Iniciar música
-
-    musica.play().catch(() => {
-
-        console.log(
-            "El navegador bloqueó la reproducción."
-        );
-
-    });
-
-
-    // Crear primeros corazones
-
-    setTimeout(() => {
-
-        crearVariosCorazones();
-
-    }, 3000);
-
-});
-
-
-// ==========================================
-// CONTROL DE MÚSICA
-// ==========================================
-
-botonMusica.addEventListener("click", (event) => {
-
-    event.stopPropagation();
-
-    if (musica.paused) {
-
-        musica.play();
-
-        botonMusica.textContent = "♫";
-
-    } else {
-
-        musica.pause();
-
-        botonMusica.textContent = "▶";
-
-    }
-
-});
-
-
-// ==========================================
-// CREAR HOJAS
-// ==========================================
-
-const simbolosHojas = [
+const hojas = [
     "🍂",
     "🍁",
     "🍂"
 ];
 
-
 function crearHoja() {
-
-    // No crear hojas antes de comenzar
-
-    if (
-        !contenido.classList.contains("mostrar")
-    ) {
-        return;
-    }
-
 
     const hoja =
         document.createElement("div");
 
     hoja.classList.add("hoja");
 
-
     hoja.textContent =
-        simbolosHojas[
+        hojas[
             Math.floor(
-                Math.random() *
-                simbolosHojas.length
+                Math.random() * hojas.length
             )
         ];
-
-
-    // Posición horizontal
 
     hoja.style.left =
         Math.random() * 100 + "vw";
 
-
-    // Tamaño
-
     hoja.style.fontSize =
-        Math.random() * 15 +
-        15 +
-        "px";
-
-
-    // Duración de caída
+        Math.random() * 14 + 15 + "px";
 
     const duracion =
         Math.random() * 5 + 7;
@@ -138,50 +34,31 @@ function crearHoja() {
     hoja.style.animationDuration =
         duracion + "s";
 
-
-    // Movimiento lateral
-
     hoja.style.setProperty(
         "--movimiento",
-        Math.random() * 180 -
-        90 +
-        "px"
+        Math.random() * 200 - 100 + "px"
     );
-
 
     document.body.appendChild(hoja);
 
-
     setTimeout(() => {
-
         hoja.remove();
-
     }, duracion * 1000);
-
 }
 
-
-// Nueva hoja cada cierto tiempo
-
-setInterval(() => {
-
-    crearHoja();
-
-}, 700);
+setInterval(crearHoja, 700);
 
 
-// ==========================================
+// =====================================
 // CORAZONES
-// ==========================================
+// =====================================
 
 function crearCorazon(x, y) {
 
     const corazon =
         document.createElement("div");
 
-
     corazon.classList.add("corazon");
-
 
     const simbolos = [
         "🤍",
@@ -190,15 +67,12 @@ function crearCorazon(x, y) {
         "🍂"
     ];
 
-
     corazon.textContent =
         simbolos[
             Math.floor(
-                Math.random() *
-                simbolos.length
+                Math.random() * simbolos.length
             )
         ];
-
 
     corazon.style.left =
         x + "px";
@@ -206,104 +80,67 @@ function crearCorazon(x, y) {
     corazon.style.top =
         y + "px";
 
-
     corazon.style.fontSize =
-        Math.random() * 16 +
-        20 +
-        "px";
-
+        Math.random() * 15 + 20 + "px";
 
     corazon.style.setProperty(
         "--movimiento",
-        Math.random() * 140 -
-        70 +
-        "px"
+        Math.random() * 150 - 75 + "px"
     );
-
 
     document.body.appendChild(corazon);
 
-
     setTimeout(() => {
-
         corazon.remove();
-
-    }, 2400);
-
+    }, 2500);
 }
 
 
-// ==========================================
-// VARIOS CORAZONES
-// ==========================================
-
-function crearVariosCorazones() {
-
-    const centroX =
-        window.innerWidth / 2;
-
-    const centroY =
-        window.innerHeight / 2;
-
-
-    for (let i = 0; i < 8; i++) {
-
-        setTimeout(() => {
-
-            crearCorazon(
-                centroX +
-                Math.random() * 180 -
-                90,
-
-                centroY +
-                Math.random() * 100
-            );
-
-        }, i * 120);
-
-    }
-
-}
-
-
-// ==========================================
+// =====================================
 // CORAZONES AL TOCAR LA PANTALLA
-// ==========================================
+// =====================================
 
 document.addEventListener("click", (event) => {
 
-    if (
-        !contenido.classList.contains("mostrar")
-    ) {
-        return;
-    }
-
-
-    if (
-        event.target === botonMusica
-    ) {
-        return;
-    }
-
-
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
 
         setTimeout(() => {
 
             crearCorazon(
-
                 event.clientX +
-                Math.random() * 30 -
-                15,
+                Math.random() * 40 - 20,
 
                 event.clientY +
-                Math.random() * 30 -
-                15
-
+                Math.random() * 40 - 20
             );
 
         }, i * 70);
-
     }
+});
+
+
+// =====================================
+// CORAZONES AL INICIAR
+// =====================================
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        for (let i = 0; i < 8; i++) {
+
+            setTimeout(() => {
+
+                crearCorazon(
+                    window.innerWidth / 2 +
+                    Math.random() * 200 - 100,
+
+                    window.innerHeight * 0.65
+                );
+
+            }, i * 120);
+        }
+
+    }, 3000);
 
 });
