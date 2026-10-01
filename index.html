@@ -12,12 +12,20 @@
 
 <body>
 
-    <!-- AUDIO -->
+    <!-- =========================
+         AUDIO
+    ========================== -->
+
     <audio id="musica" loop preload="auto">
         october.mp3
+        Tu navegador no soporta audio.
     </audio>
 
-    <!-- PANTALLA INICIAL -->
+
+    <!-- =========================
+         PANTALLA INICIAL
+    ========================== -->
+
     <section class="inicio" id="inicio">
 
         <div class="inicio-contenido">
@@ -30,7 +38,7 @@
                 Tengo algo para ti 🤍
             </h1>
 
-            <button id="botonComenzar">
+            <button id="botonComenzar" type="button">
                 Toca aquí
             </button>
 
@@ -43,18 +51,23 @@
     </section>
 
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+
     <main class="contenido" id="contenido">
 
-        <!-- HOJAS -->
+        <!-- Hojas de otoño -->
         <div id="hojas"></div>
 
-        <!-- TEXTO SUPERIOR -->
+
+        <!-- =========================
+             TÍTULO
+        ========================== -->
+
         <div class="titulo">
 
-            <p>
-                01 • 10 • 2026
-            </p>
+            <p>01 • 10 • 2026</p>
 
             <h1>
                 Para ti, mi Nei preciosa 🤍
@@ -63,19 +76,29 @@
         </div>
 
 
-        <!-- FOTO -->
+        <!-- =========================
+             FOTO
+        ========================== -->
+
         <div class="foto-contenedor">
 
             <div class="brillo-foto"></div>
 
-            nei.jpeg
+            <img
+                src="nei.jpeg"
+                alt="Foto especial para octubre"
+                class="foto"
+            >
 
             <div class="overlay"></div>
 
         </div>
 
 
-        <!-- FRASE -->
+        <!-- =========================
+             FRASE
+        ========================== -->
+
         <div class="frase">
 
             <p class="linea linea-1">
@@ -93,24 +116,29 @@
         </div>
 
 
-        <!-- MENSAJE FINAL -->
+        <!-- =========================
+             MENSAJE FINAL
+        ========================== -->
+
         <div class="mensaje-final">
 
             <p>
                 Mi octubre favorito comienza contigo.
             </p>
 
-            <span>
-                🤍
-            </span>
+            <span>🤍</span>
 
         </div>
 
 
-        <!-- BOTÓN MÚSICA -->
+        <!-- =========================
+             BOTÓN DE MÚSICA
+        ========================== -->
+
         <button
-            class="boton-musica"
             id="botonMusica"
+            class="boton-musica"
+            type="button"
             aria-label="Pausar o reproducir música"
         >
             ♫
@@ -118,6 +146,10 @@
 
     </main>
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script src="script.js"></script>
 
